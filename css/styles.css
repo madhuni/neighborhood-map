@@ -1,0 +1,9 @@
+.flex-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#list-wrapper {
+    width: 30%;
+}
