@@ -1,0 +1,23 @@
+** Implementing Live Search with Knockout **
+
+http://opensoul.org/2011/06/23/live-search-with-knockoutjs/
+
+** To-do-list for starting the project **
+
+https://discussions.udacity.com/t/unable-to-implement-search-list-view-in-the-project/205847/7
+
+Steps to make the project:
+
+1) The next goal could be to display a simple list with location names using Knockoutjs. Here are the steps:
+
+2) Define a hard-coded locations Array of location objects. => done
+
+3) Define a ViewModel constructor. => todo
+
+4) Instantiate the ViewModel and activate Knockout (aka apply the bindings). => todo
+
+5) Define an observableArray in the ViewModel. => todo
+
+6) Initialize the observableArray with the locations Array. => todo
+
+7) Apply the ko foreach binding to an element in the view and iterate over the observableArray. => todo
