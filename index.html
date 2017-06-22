@@ -12,24 +12,26 @@
     <!-- This will be the navigation panel with fixed position -->
     <div id="navigation-container"></div>
     
-    <header class="page-header">
-        <div class="header-wrapper flex-box">
-            <div class="button-container">
-                <i class="fa fa-bars"></i>
-            </div>
-            <div class="project-title">
-                <h1 class="text-center">Bangalore Fav Places to Visit</h1>
-            </div>
-        </div>
-    </header>
-    
     <div id="wrapper">
-        <div id="map-container"></div>
+        <header class="page-header">
+            <div class="header-wrapper flex-box">
+                <div class="button-container">
+                    <i class="fa fa-bars" onclick="openNav()" ondblclick="closeNav()"></i>
+                </div>
+                <div class="project-title">
+                    <h1 class="text-center">Bangalore Fav Places to Visit</h1>
+                </div>
+            </div>
+        </header>
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
     </div>
     
     <script src="js/libs/knockoutjs_min.js"></script>
     <script src="js/model.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/interectivity.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA31u0Hxmq37sPOLezIMM8wg0VLJd5E0Sg&v=3&callback=initMap"></script>
 </body>
 </html>
