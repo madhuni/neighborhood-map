@@ -24,6 +24,11 @@ h6 {
     flex-wrap: wrap;
 }
 
+#wrapper {
+    height: 100%;
+    transition: margin-left .5s;
+}
+
 .page-header {
     margin: 0;
     padding: 15px;
@@ -35,16 +40,20 @@ h6 {
     text-align: center;
 }
 
+.button-container i:hover {
+    cursor: pointer;
+}
+
 .project-title {
     width: 90%;
 }
 
-#wrapper {
+#map-container {
     height: 100%;
     position: relative;
 }
 
-#map-container {
+#map {
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -52,3 +61,17 @@ h6 {
     height: 100%;
     overflow: hidden;
 }
+
+/* Styling for the navigation panel */
+#navigation-container {
+    width: 0;
+    z-index: 1;
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: rgba(0, 0, 0, 0.88);
+    transition: .5s;
+}
+
