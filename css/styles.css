@@ -1,16 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
 .flex-box {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-#list-wrapper {
-    width: 30%;
+.page-header {
+    margin: 0;
+    padding: 15px;
 }
 
-#map {
-    width: 800px;
-    height: 600px;
+.button-container {
+    width: 10%;
+    font-size: 30px;
+    text-align: center;
+}
+
+.project-title {
+    width: 90%;
+}
+
+#wrapper {
+    height: 100%;
+    position: relative;
+}
+
+#map-container {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    height: 100%;
     overflow: hidden;
-    margin: 0 auto;
 }
