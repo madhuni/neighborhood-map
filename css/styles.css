@@ -7,3 +7,10 @@
 #list-wrapper {
     width: 30%;
 }
+
+#map {
+    width: 800px;
+    height: 600px;
+    overflow: hidden;
+    margin: 0 auto;
+}
