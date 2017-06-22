@@ -9,7 +9,7 @@ var initMap = function () {
         mapTypeId: 'roadmap'
     };
     
-    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
     
     var bounds = new google.maps.LatLngBounds();
     
