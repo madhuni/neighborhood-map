@@ -114,3 +114,10 @@ h6 {
     cursor: pointer;
 }
 
+.open-nav {
+    width: 300px !important;
+}
+
+.wrapper-off {
+    margin-left: 300px;
+}
