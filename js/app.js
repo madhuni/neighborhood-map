@@ -47,4 +47,3 @@ var ViewModel = function () {
 var vm = new ViewModel();
 
 ko.applyBindings(vm);
-
