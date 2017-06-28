@@ -2,6 +2,17 @@
 
 http://opensoul.org/2011/06/23/live-search-with-knockoutjs/
 
+** best description of using the google map with Knockout **
+https://www.snip2code.com/Snippet/1401373/Binding-map-and-info-window-to-global-sc
+http://www.logiticks.com/web/dynamically-binding-google-maps-location-using-knockout-js/
+
+** Get the data about the places from this api **
+https://foursquare.com/
+
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+
 ** To-do-list for starting the project **
 
 https://discussions.udacity.com/t/unable-to-implement-search-list-view-in-the-project/205847/7
