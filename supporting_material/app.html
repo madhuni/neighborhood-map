@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Neighborhood Map</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- This will be the navigation panel with fixed position -->
+        <div id="navigation-container">
+            <div class="nav-wrapper">
+                <div class="input-container">
+                    <input type="text" placeholder="Search your location">
+                </div>
+                <div class="list-container">
+                    <ul class="location-list" data-bind="foreach: locationContainer">
+                        <li class="list-item" data-bind="text: $data.title, click: $root.activateMarker"></li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- end of '#navigation-container' -->
+        <header class="page-header">
+            <div class="header-wrapper flex-box">
+                <div class="button-container">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="project-title">
+                    <h1 class="text-center">Bangalore Fav Places to Visit</h1>
+                </div>
+            </div>
+        </header>
+        <div id="map-container">
+            <div class="row">
+                <div id="map" class="col-sm-12 col-md-12"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+    <script src="js/libs/knockout.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/interectivity.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA31u0Hxmq37sPOLezIMM8wg0VLJd5E0Sg&v=3&callback=initMap"></script>
+</body>
+</html>
