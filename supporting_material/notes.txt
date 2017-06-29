@@ -9,6 +9,8 @@ http://www.logiticks.com/web/dynamically-binding-google-maps-location-using-knoc
 ** Get the data about the places from this api **
 https://foursquare.com/
 
+** Learning about CSS-Trnasitions **
+https://alistapart.com/article/understanding-css3-transitions
 
 -----------------------------------------------------------------
 -----------------------------------------------------------------
