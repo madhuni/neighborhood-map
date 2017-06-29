@@ -75,7 +75,7 @@ var ViewModel = function () {
     }
     
     /* This function will activate the infoWindow corresponds to the list item clicked in the navigation */
-    self.activateMarker = function (location) {
+    self.activateInfoWindow = function (location) {
         openInfoWindow(location.marker, largeInfoWindow);
     };
 };
