@@ -68,6 +68,10 @@ h6 {
 
 /* Styling for the navigation panel */
 #navigation-container {
+    position: relative;
+}
+
+.nav-menu {
     width: 0;
     z-index: 1;
     position: fixed;
@@ -78,6 +82,7 @@ h6 {
     background-color: rgba(0, 0, 0, 0.88);
     transition: .5s;
 }
+
 .nav-wrapper {
     padding: 10px;
 }
@@ -122,5 +127,5 @@ h6 {
 }
 
 .wrapper-off {
-    margin-left: 300px;
+/*    margin-left: 300px;*/
 }
