@@ -14,11 +14,20 @@ $(function () {
     var hamburger = $('.fa-bars');
     var wrapper = $('#wrapper');
     var nav = $('.nav-menu');
+    var closeButton = $('.expend-button');
     
     hamburger.on('click', function () {
 //        console.log("I am working fine");
         nav.toggleClass('open-nav');
-        wrapper.toggleClass('wrapper-off');
+        closeButton.toggleClass('display-btn');
     });
+
+    closeButton.on('click', function () {
+//        console.log("I am working fine");
+        nav.toggleClass('open-nav');
+        closeButton.toggleClass('display-btn');
+    });
+
+
     
 });
