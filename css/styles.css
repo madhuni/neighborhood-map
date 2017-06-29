@@ -69,6 +69,7 @@ h6 {
 /* Styling for the navigation panel */
 #navigation-container {
     position: relative;
+    z-index: 1;
 }
 
 .nav-menu {
@@ -128,4 +129,23 @@ h6 {
 
 .wrapper-off {
 /*    margin-left: 300px;*/
+}
+
+/* styling for the 'expend-button' starts here */
+
+.expend-button {
+    position: absolute;
+    top: 90px;
+    left: 300px;
+}
+
+.expend-button .btn {
+    width: 20px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 0px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    font-weight: bold;
 }
