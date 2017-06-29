@@ -28,6 +28,9 @@ $(function () {
         closeButton.toggleClass('display-btn');
     });
 
-
+    /* Reloading the page whenever the size of the window change */
+    $(window).resize(function () {
+        location.reload();
+    });
     
 });
