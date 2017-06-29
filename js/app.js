@@ -16,6 +16,9 @@ var initMap = function () {
     /* Initializing the map object */
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
     
+    /* Initializing the largeInfoWindow object */
+    largeInfoWindow = new google.maps.InfoWindow();
+    
     /* Initializing the bounds object */
     var bounds = new google.maps.LatLngBounds();
     
@@ -24,6 +27,11 @@ var initMap = function () {
     var locContainer = vm.locationContainer();
     
     for (var i = 0; i< locContainer.length; i++) {
+        /* Adding event listener to each of the marker */
+        locContainer[i].marker.addListener('click', function() {
+            openInfoWindow(this, largeInfoWindow);
+        });
+        
         bounds.extend(locContainer[i].marker.position);
     }
     
@@ -31,6 +39,13 @@ var initMap = function () {
     
     /* Applying the bindings */
     ko.applyBindings(vm);
+};
+
+/* Defining the openInfoWindow funtion */
+function openInfoWindow(marker, infoWindow) {
+    infoWindow.marker = marker;
+    infoWindow.setContent(marker.title);
+    infoWindow.open(map, marker);
 };
 
 /* Defining the Location constructor */
@@ -54,6 +69,7 @@ var ViewModel = function () {
     
     self.locationContainer = ko.observableArray([]);
     
+    /* Adding Location objects into the locationContainer */
     for (var i = 0; i < locations.length; i++) {
         self.locationContainer.push(new Location(locations[i]));
     }
