@@ -13,10 +13,10 @@ $(function () {
     /* Using jQuery to toggle the open and close the navigation panel */
     var hamburger = $('.fa-bars');
     var wrapper = $('#wrapper');
-    var nav = $('#navigation-container');
+    var nav = $('.nav-menu');
     
     hamburger.on('click', function () {
-        console.log("I am working fine");
+//        console.log("I am working fine");
         nav.toggleClass('open-nav');
         wrapper.toggleClass('wrapper-off');
     });
