@@ -11,16 +11,21 @@
 <body>
     <div id="wrapper">
         <!-- This will be the navigation panel with fixed position -->
-        <div id="navigation-container">
-            <div class="nav-wrapper">
-                <div class="input-container">
-                    <input type="text" placeholder="Search your location">
-                </div>
-                <div class="list-container">
-                    <ul class="location-list" data-bind="foreach: $root.locationContainer">
-                        <li class="list-item" data-bind="text: $data.title, click:$root.activateInfoWindow.bind($root, $data)"></li>
-                    </ul>
-                </div>
+        <div id="navigation-container" class="flex-box">
+            <div class="nav-menu">
+                <div class="nav-wrapper">
+                    <div class="input-container">
+                        <input type="text" placeholder="Search your location">
+                    </div>
+                    <div class="list-container">
+                        <ul class="location-list" data-bind="foreach: $root.locationContainer">
+                            <li class="list-item" data-bind="text: $data.title, click:$root.activateInfoWindow.bind($root, $data)"></li>
+                        </ul>
+                    </div>
+                </div><!-- End of 'nav-wrapper' -->
+            </div><!-- End of 'nav-menu' -->
+            <div class="expend-button">
+                <a class="btn btn-default" type="button">click here</a>
             </div>
         </div> <!-- end of '#navigation-container' -->
         <header class="page-header">
