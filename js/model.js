@@ -18,11 +18,40 @@ var locations = [
         placeId: 'ChIJd1HW9X0WrjsRlH0QQRJMAwk'
     },
     {
-        
-        title: 'Wonderla Ammusement Park',
-        position: {lat: 12.834556, lng: 77.400972},
-        address: '28th km, Mysore Road, Bengaluru, Karnataka 562109, India',
-        placeId: 'ChIJW3Or_8dHrjsROESo0OikUl4'
+        title: 'ShriNath Ji Restaurant',
+        position: {lat: 12.9482427, lng: 77.69835139999999},
+        address: '#5, Ground Floor, More Mega Store Premises, KBR Complex, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037, India',
+        placeId: 'ChIJCd00R7UTrjsRKWfEI0rqyjQ'
+    },
+    {
+        title: 'Tabla Restaurant',
+        position: {lat: 12.9509933, lng: 77.69936229999999},
+        address: '1st floor,Door No.2383/2, Soul Space Paradigm, Near Innovative Multiplex, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037, India',
+        placeId: 'ChIJC1vaxsoTrjsRkEs96mv6bsA'
+    },
+    {
+        title: 'Vapor',
+        position: {lat: 12.9695704, lng: 77.64110169999999},
+        address: 'No. 773, HAL 2nd Stage, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038, India',
+        placeId: 'ChIJjXpO8acWrjsRVrTLq_ga6Xw'
+    },
+    {
+        title: 'Phoenix Market City',
+        position: {lat: 12.997572, lng: 77.69633899999999},
+        address: 'Whitefield Main Road, Mahadevpura, Bengaluru, Karnataka 560048, India',
+        placeId: 'ChIJS76jBAsRrjsRQ5Yuqy0l-88'
+    },
+    {
+        title: 'VR Mall',
+        position: {lat: 12.996269, lng: 77.69527099999999},
+        address: '60/2, ITPL Road, Bengaluru, Karnataka 560048, India',
+        placeId: 'ChIJtV2JQAsRrjsRp4HCbaob4R0'
+    },
+    {
+        title: 'Subiksha Courette',
+        position: {lat: 12.9519755, lng: 77.6979947},
+        address: '1, Tulasi Theatre Road, Marathahalli Village, Marathahalli, Bengaluru, Karnataka 560037, India',
+        placeId: 'ChIJdUnHIcsTrjsRyaes8rbynFM'
     },
     {
         title: 'ISKCON Temple',
