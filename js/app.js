@@ -1,5 +1,5 @@
 /* Defining the Global Variables */
-var map, largeInfoWindow;
+var map, largeInfoWindow, bounds;
 
 /* Defining the initMap call back function */
 var initMap = function () {
@@ -20,7 +20,7 @@ var initMap = function () {
     largeInfoWindow = new google.maps.InfoWindow();
     
     /* Initializing the bounds object */
-    var bounds = new google.maps.LatLngBounds();
+    bounds = new google.maps.LatLngBounds();
     
     /* Initializing the viewModel object */
     var vm = new ViewModel();
