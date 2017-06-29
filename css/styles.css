@@ -103,13 +103,16 @@ h6 {
 .list-item {
     font-size: 16px;
     text-align: left;
-    padding: 5px;
+    padding: 5px 5px 5px 15px;
     color: grey;
     margin-bottom: 5px;
-    transition: .5s;
+    transition: color .5s;
 }
 
 .list-item:hover {
+    background-color: rgb(39, 35, 35);
+    border-left: 2px solid orange;
+    padding-left: 13px;
     color: white;
     cursor: pointer;
 }
