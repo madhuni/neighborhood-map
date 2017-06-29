@@ -42,7 +42,7 @@ var initMap = function () {
 };
 
 /* Defining the openInfoWindow funtion */
-function openInfoWindow(marker, infoWindow) {
+function openInfoWindow (marker, infoWindow) {
     infoWindow.marker = marker;
     infoWindow.setContent(marker.title);
     infoWindow.open(map, marker);
@@ -73,5 +73,10 @@ var ViewModel = function () {
     for (var i = 0; i < locations.length; i++) {
         self.locationContainer.push(new Location(locations[i]));
     }
+    
+    /* This function will activate the infoWindow corresponds to the list item clicked in the navigation */
+    self.activateMarker = function (location) {
+        openInfoWindow(location.marker, largeInfoWindow);
+    };
 };
 
