@@ -129,13 +129,14 @@ h6 {
 
 .display-btn {
     display: block !important;
+    transition: display .5s
 }
 
 /* styling for the 'expend-button' starts here */
 
 .expend-button {
     position: absolute;
-    top: 90px;
+    top: 150px;
     left: 300px;
     display: none;
     transition: all .5s ease;
