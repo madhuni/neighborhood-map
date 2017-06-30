@@ -57,4 +57,17 @@ https://api.foursquare.com/v2/venues/search
 ** URL for finding the tips about the place using the venue_id **
 https://api.foursquare.com/v2/venues/52050c9c498e37b806b38f1b/tips?client_id=UPSN54SKPJL2AIQ4QL55UDZADYQKDP545LTWKAZAUN5MVGLN
   &client_secret=ZPRUPW2TZYLW4SIE41RXUZMKJYCD3TE25EPNMP3305ZOCYTK
+  &v=20170601&m=foursquare&sort=recent&limit=500
+
+** URL for finding the photoes about the venue **
+https://api.foursquare.com/v2/venues/52050c9c498e37b806b38f1b/photos?client_id=UPSN54SKPJL2AIQ4QL55UDZADYQKDP545LTWKAZAUN5MVGLN
+  &client_secret=ZPRUPW2TZYLW4SIE41RXUZMKJYCD3TE25EPNMP3305ZOCYTK
   &v=20170601&m=foursquare
+
+** API documentation **
+https://developer.foursquare.com/docs/
+https://foursquare.com/developers/app/UPSN54SKPJL2AIQ4QL55UDZADYQKDP545LTWKAZAUN5MVGLN
+
+
+** Getting the image **
+https://igx.4sqi.net/img/general/720x960/74911092_H77kbqEemZbtXEaDchXITEIquVm6H2v7mJf3EjtMQ6Y.jpg
