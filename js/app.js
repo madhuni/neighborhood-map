@@ -29,6 +29,8 @@ var initMap = function () {
     for (var i = 0; i< locContainer.length; i++) {
         /* Adding event listener to each of the marker */
         locContainer[i].marker.addListener('click', function() {
+            bounceMarker(this);
+            stopBouncingMarker(this, 1500);
             openInfoWindow(this, largeInfoWindow);
         });
         
@@ -39,6 +41,18 @@ var initMap = function () {
     
     /* Applying the bindings */
     ko.applyBindings(vm);
+};
+
+/* Defining the bounceMarker function */
+function bounceMarker (marker) {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+};
+
+/* Defining function to stop the bouncing of the marker */
+function stopBouncingMarker (marker, time) {
+    window.setTimeout(function () {
+        marker.setAnimation(null);
+    }, time);
 };
 
 /* Defining the openInfoWindow funtion */
@@ -76,6 +90,8 @@ var ViewModel = function () {
     
     /* This function will activate the infoWindow corresponds to the list item clicked in the navigation */
     self.activateInfoWindow = function (location) {
+        bounceMarker(location.marker);
+        stopBouncingMarker(location.marker, 1500);
         openInfoWindow(location.marker, largeInfoWindow);
     };
 };
