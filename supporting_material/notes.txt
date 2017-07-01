@@ -54,6 +54,11 @@ https://api.foursquare.com/v2/venues/search
   &client_secret=ZPRUPW2TZYLW4SIE41RXUZMKJYCD3TE25EPNMP3305ZOCYTK
   &ll=12.997572,77.69633899999999&query=Phoenix+Market+ City&v=20170601&m=foursquare
 
+** URL for finding the details about the venue **
+https://api.foursquare.com/v2/venues/52050c9c498e37b806b38f1b?client_id=UPSN54SKPJL2AIQ4QL55UDZADYQKDP545LTWKAZAUN5MVGLN
+  &client_secret=ZPRUPW2TZYLW4SIE41RXUZMKJYCD3TE25EPNMP3305ZOCYTK
+  &v=20170601&m=foursquare
+
 ** URL for finding the tips about the place using the venue_id **
 https://api.foursquare.com/v2/venues/52050c9c498e37b806b38f1b/tips?client_id=UPSN54SKPJL2AIQ4QL55UDZADYQKDP545LTWKAZAUN5MVGLN
   &client_secret=ZPRUPW2TZYLW4SIE41RXUZMKJYCD3TE25EPNMP3305ZOCYTK
