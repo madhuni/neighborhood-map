@@ -18,31 +18,31 @@ var locations = [
         placeId: 'ChIJd1HW9X0WrjsRlH0QQRJMAwk'
     },
     {
-        title: 'ShriNath Ji Restaurant',
+        title: "Srinathji's",
         position: {lat: 12.9482427, lng: 77.69835139999999},
         address: '#5, Ground Floor, More Mega Store Premises, KBR Complex, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037, India',
         placeId: 'ChIJCd00R7UTrjsRKWfEI0rqyjQ'
     },
     {
-        title: 'Tabla Restaurant',
+        title: 'Tabla',
         position: {lat: 12.9509933, lng: 77.69936229999999},
         address: '1st floor,Door No.2383/2, Soul Space Paradigm, Near Innovative Multiplex, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037, India',
         placeId: 'ChIJC1vaxsoTrjsRkEs96mv6bsA'
     },
     {
-        title: 'Vapor',
+        title: 'Vapour Pub and Brewery',
         position: {lat: 12.9695704, lng: 77.64110169999999},
         address: 'No. 773, HAL 2nd Stage, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038, India',
         placeId: 'ChIJjXpO8acWrjsRVrTLq_ga6Xw'
     },
     {
-        title: 'Phoenix Market City',
+        title: 'Phoenix',
         position: {lat: 12.997572, lng: 77.69633899999999},
         address: 'Whitefield Main Road, Mahadevpura, Bengaluru, Karnataka 560048, India',
         placeId: 'ChIJS76jBAsRrjsRQ5Yuqy0l-88'
     },
     {
-        title: 'VR Mall',
+        title: 'VR Bengaluru',
         position: {lat: 12.996269, lng: 77.69527099999999},
         address: '60/2, ITPL Road, Bengaluru, Karnataka 560048, India',
         placeId: 'ChIJtV2JQAsRrjsRp4HCbaob4R0'
@@ -54,7 +54,7 @@ var locations = [
         placeId: 'ChIJdUnHIcsTrjsRyaes8rbynFM'
     },
     {
-        title: 'ISKCON Temple',
+        title: 'ISKCON',
         position: {lat: 13.0096323, lng: 77.55107099999999},
         address: 'Hare Krishna Hill, Chord Road, Rajaji Nagar, Bengaluru, Karnataka 560010, India',
         placeId: 'ChIJBw42C-09rjsRs7KmQUqyf3o'
