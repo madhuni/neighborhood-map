@@ -31,7 +31,7 @@ function getContentFromFoursquare (marker) {
                     v: "20170601",
                     m: "foursquare",
                     sort: "recent",
-                    limit: "100"
+                    limit: "10"
                 });
                 
                 $.ajax({
@@ -65,3 +65,29 @@ function getContentFromFoursquare (marker) {
         }
     });
 };
+
+/* Function to get the details of the places from Good Maps API */
+function getDetailFromGoogle () {
+    var apiKey = "AIzaSyA31u0Hxmq37sPOLezIMM8wg0VLJd5E0Sg";
+    var url = "https://maps.googleapis.com/maps/api/geocode/json";
+    url += "?" + $.param({
+        address: 'Sattvam Bangalore',
+        key: apiKey
+    });
+
+    $.ajax({
+        url: url,
+        dataType: 'json',
+        success: function (data) {
+            var location = data.results[0];
+            console.log(location.geometry.location);
+            console.log("address : " + location.formatted_address);
+            console.log("place_id : " + location.place_id);
+        },
+        error: function () {
+            console.log("Something went wrong !!!");
+        }
+    }); 
+};
+
+// getDetailFromGoogle();
