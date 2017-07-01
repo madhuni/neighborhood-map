@@ -31,6 +31,7 @@ var initMap = function () {
         locContainer[i].marker.addListener('click', function() {
             bounceMarker(this);
             stopBouncingMarker(this, 1500);
+            getContentFromFoursquare(this);
             openInfoWindow(this, largeInfoWindow);
         });
         
@@ -92,6 +93,7 @@ var ViewModel = function () {
     self.activateInfoWindow = function (location) {
         bounceMarker(location.marker);
         stopBouncingMarker(location.marker, 1500);
+        getContentFromFoursquare(location.marker);
         openInfoWindow(location.marker, largeInfoWindow);
     };
 };
