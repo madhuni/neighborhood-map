@@ -66,8 +66,8 @@ var Location = function (data) {
         map: map,
         title: this.title(),
         position: this.position(),
-        draggable: false,
-        animation: google.maps.Animation.DROP
+        draggable: false
+        // animation: google.maps.Animation.DROP
     });
 };
 
