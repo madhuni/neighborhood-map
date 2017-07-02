@@ -82,6 +82,10 @@ https://api.foursquare.com/v2/venues/514b23f5e4b0b5a9c5d17e2d/similar?client_id=
   &client_secret=ZPRUPW2TZYLW4SIE41RXUZMKJYCD3TE25EPNMP3305ZOCYTK
   &v=20170601&m=foursquare
 
+
+** Working on live search **
+http://opensoul.org/2011/06/23/live-search-with-knockoutjs/
+
 ** More places to visit **
 
 Lalbagh + MTR
@@ -96,3 +100,20 @@ Truffles
 Mani's Biryani
 NH-8 (Restrarunt)
 Rajdhani (Restarunt)
+
+** How to use setIntervel method **
+If you don't care if the code within the timer may take longer than your interval, use setInterval():
+
+setInterval(function, delay)
+
+1) That fires the function passed in as first parameter over and over.
+
+A better approach is, to use setTimeout along with a self-executing anonymous function:
+
+(function(){
+    // do some stuff
+    setTimeout(arguments.callee, 60000);
+})();
+that guarantees, that the next call is not made before your code was executed. I used arguments.callee in this example as function reference. It's a better way to give the function a name and call that within setTimeout because arguments.callee is deprecated in ecmascript 5.
+
+2) setInterval("ajaxd()",10000);
