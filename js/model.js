@@ -125,7 +125,6 @@ var locations = [
         address: '35, Opposite Shell Petrol Bunk, Sankey Road, Sadashivnagar, Bengaluru, Karnataka 560080, India',
         placeId: 'ChIJm1G1mDYWrjsRvmk1hrhV21Y'
     }
-    
 ];
 
 /* HTTP geolocaitn api to find the address of the particular area */
