@@ -77,6 +77,11 @@ https://foursquare.com/developers/app/UPSN54SKPJL2AIQ4QL55UDZADYQKDP545LTWKAZAUN
 ** Getting the image **
 https://igx.4sqi.net/img/general/720x960/74911092_H77kbqEemZbtXEaDchXITEIquVm6H2v7mJf3EjtMQ6Y.jpg
 
+** Places similar to the location **
+https://api.foursquare.com/v2/venues/514b23f5e4b0b5a9c5d17e2d/similar?client_id=UPSN54SKPJL2AIQ4QL55UDZADYQKDP545LTWKAZAUN5MVGLN
+  &client_secret=ZPRUPW2TZYLW4SIE41RXUZMKJYCD3TE25EPNMP3305ZOCYTK
+  &v=20170601&m=foursquare
+
 ** More places to visit **
 
 Lalbagh + MTR
