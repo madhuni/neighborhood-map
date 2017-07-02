@@ -169,6 +169,28 @@ function getSimilarVenues (venueId, clientId, clientSecret) {
     });
 };
 
+/* Function to retrive weather for the city */
+function getWeather () {
+    var apiKey = "a71fa89ba24601d8940995e04f9d6bb6";
+    var weatherUrl = "http://api.openweathermap.org/data/2.5/weather";
+    weatherUrl += "?" + $.param({
+        q: "Bangalore",
+        APPID: apiKey,
+        units: "metric"
+    });
+    
+    $.ajax({
+        url: weatherUrl,
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+        },
+        error: function () {
+            console.log("Oops...Something went wrong !!! :( ");
+        }
+    });
+};
+
 /* Function to get the details of the places from Good Maps API */
 function getDetailFromGoogle () {
     var apiKey = "AIzaSyA31u0Hxmq37sPOLezIMM8wg0VLJd5E0Sg";
@@ -194,3 +216,4 @@ function getDetailFromGoogle () {
 };
 
 // getDetailFromGoogle();
+// getWeather();
