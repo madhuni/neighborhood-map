@@ -184,7 +184,17 @@ function getWeather () {
         url: weatherUrl,
         dataType: "json",
         success: function (data) {
-            console.log(data);
+            console.log("weather is fetched");
+            // console.log(data);
+            var currentTemp = data.main.temp;
+            var maxTemp = data.main.temp_max;
+            var minTemp = data.main.temp_min;
+            var humidity = data.main.humidity;
+            var weather = data.weather[0].description;
+            console.log("Temperature is : " + currentTemp + 
+                "\n Weather : " + weather + 
+                "\n Humidity : " + humidity + "%"
+                );
         },
         error: function () {
             console.log("Oops...Something went wrong !!! :( ");
@@ -217,4 +227,7 @@ function getDetailFromGoogle () {
 };
 
 // getDetailFromGoogle();
-// getWeather();
+
+/* Calling the funtion after a time interval of 10mins */
+getWeather(); // initializing the funtion on the load of the app
+window.setInterval("getWeather()", 600000);
