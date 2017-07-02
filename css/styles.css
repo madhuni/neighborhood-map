@@ -26,7 +26,6 @@ h6 {
 
 #wrapper {
     height: 100vh;
-    transition: margin-left .5s;
 }
 
 .page-header {
@@ -82,7 +81,7 @@ h6 {
     height: 100%;
     overflow-x: hidden;
     background-color: rgba(0, 0, 0, 0.88);
-    transition: .5s;
+    transition: .5s ease;
 }
 
 .nav-wrapper {
@@ -170,4 +169,32 @@ h6 {
     #map-container {
         height: 84%;
     }
+}
+
+#weather-details-container {
+    width: 250px;
+    /*width: 0;*/
+    z-index: 500;
+    position: fixed;
+    top:300;
+    right:0;
+    border: 0.5px solid black;
+}
+
+.weather-details {
+    width: 190px;
+    display: inline-block;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    padding: 2px;
+}
+
+.weather-logo {
+    width: 60px;
+    display: inline-block;
+}
+
+.weather-details p {
+    margin-bottom: 0px;
 }
