@@ -24,25 +24,12 @@ var initMap = function () {
     
     /* Initializing the viewModel object */
     var vm = new ViewModel();
-    var locContainer = vm.locationContainer();
     
-    for (var i = 0; i< locContainer.length; i++) {
-        /* Adding event listener to each of the marker */
-        locContainer[i].marker.addListener('click', function() {
-            bounceMarker(this);
-            stopBouncingMarker(this, 1500);
-            getContentFromFoursquare(this);
-            openInfoWindow(this, largeInfoWindow);
-        });
-        
-        bounds.extend(locContainer[i].marker.position);
-    }
-    
+    vm.query.subscribe(vm.liveSearchLocations);
+    vm.addClickListener();
     map.fitBounds(bounds);
-    
     /* Applying the bindings */
     ko.applyBindings(vm);
-    vm.query.subscribe(vm.liveSearchLocations);
 };
 
 /* Defining the bounceMarker function */
@@ -60,7 +47,7 @@ function stopBouncingMarker (marker, time) {
 /* Defining the openInfoWindow funtion */
 function openInfoWindow (marker, infoWindow) {
     infoWindow.marker = marker;
-    infoWindow.setContent('<h4 class="infowin-title">This is title on the info window</h4><ul class="infowin-list"><li class="infowin-list-item">First Location</li></ul>');
+    infoWindow.setContent(marker.title);
     infoWindow.open(map, marker);
 };
 
@@ -74,8 +61,8 @@ var Location = function (data) {
         map: map,
         title: this.title(),
         position: this.position(),
-        draggable: false,
-        animation: google.maps.Animation.DROP
+        draggable: false
+        //animation: google.maps.Animation.DROP
     });
 };
 
@@ -85,9 +72,16 @@ var ViewModel = function () {
     
     self.locationContainer = ko.observableArray([]);
     
+    self.markerContainer = ko.observableArray([]);
+    
     /* Adding Location objects into the locationContainer */
     for (var i = 0; i < locations.length; i++) {
         self.locationContainer.push(new Location(locations[i]));
+    }
+    
+    /* Adding markers to the markerContainer */
+    for (var i = 0; i < self.locationContainer().length; i++) {
+        self.markerContainer.push(self.locationContainer()[i].marker);
     }
     
     /* This function will activate the infoWindow corresponds to the list item clicked in the navigation */
@@ -98,20 +92,50 @@ var ViewModel = function () {
         openInfoWindow(location.marker, largeInfoWindow);
     };
     
+    /* Adding event listener to the markers*/
+    self.addClickListener = function () {
+        for (var i = 0; i< self.markerContainer().length; i++) {
+            /* Adding event listener to each of the marker */
+            self.markerContainer()[i].addListener('click', function() {
+                bounceMarker(this);
+                stopBouncingMarker(this, 1500);
+                getContentFromFoursquare(this);
+                openInfoWindow(this, largeInfoWindow);
+            });
+            
+            bounds.extend(self.markerContainer()[i].position);
+        }
+    }
+    
+    /* function to add the markers*/
+    self.addMarkers = function (locationContainer) {
+        for (var i = 0; i < locationContainer().length; i++) {
+            self.markerContainer.push(self.locationContainer()[i].marker);
+        }
+    };
+    
+    /* function to clear all the markers from the map */
+    self.removeMarkers = function () {
+        for (var i = 0; i < self.markerContainer().length; i++) {
+            self.markerContainer()[i].setMap(null);
+        }
+    };
+
     /* Code for implementing the search for the places in the list starts here */
     self.query = ko.observable("");
     
     self.liveSearchLocations = function (value) {
         // removing all the locations from the container
         self.locationContainer.removeAll();
+        self.removeMarkers();
         
         for (var i = 0; i < locations.length; i++) {
             if (locations[i].title.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
                 self.locationContainer.push(new Location(locations[i]));
+                self.addMarkers(self.locationContainer);
+                self.addClickListener();
             }
         }
     };
-    
-    
 };
 
