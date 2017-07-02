@@ -32,6 +32,7 @@ h6 {
 .page-header {
     margin: 0;
     padding: 15px;
+    height: 11%;
     color: white;
     background-color: rgba(0, 0, 0, 0.88);
 }
@@ -51,7 +52,7 @@ h6 {
 }
 
 #map-container {
-    height: 89vh;
+    height: 89%;
     position: relative;
 /*    margin: 10px;*/
 }
@@ -159,4 +160,14 @@ h6 {
     background-color: white;
     cursor: pointer;
 
+}
+
+@media screen and (max-width: 371px) {
+    .page-header {
+        height: 16%;
+    }
+
+    #map-container {
+        height: 84%;
+    }
 }
