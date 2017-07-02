@@ -42,6 +42,7 @@ var initMap = function () {
     
     /* Applying the bindings */
     ko.applyBindings(vm);
+    vm.query.subscribe(vm.liveSearchLocations);
 };
 
 /* Defining the bounceMarker function */
@@ -59,7 +60,7 @@ function stopBouncingMarker (marker, time) {
 /* Defining the openInfoWindow funtion */
 function openInfoWindow (marker, infoWindow) {
     infoWindow.marker = marker;
-    infoWindow.setContent(marker.title);
+    infoWindow.setContent('<h4 class="infowin-title">This is title on the info window</h4><ul class="infowin-list"><li class="infowin-list-item">First Location</li></ul>');
     infoWindow.open(map, marker);
 };
 
@@ -96,5 +97,21 @@ var ViewModel = function () {
         getContentFromFoursquare(location.marker);
         openInfoWindow(location.marker, largeInfoWindow);
     };
+    
+    /* Code for implementing the search for the places in the list starts here */
+    self.query = ko.observable("");
+    
+    self.liveSearchLocations = function (value) {
+        // removing all the locations from the container
+        self.locationContainer.removeAll();
+        
+        for (var i = 0; i < locations.length; i++) {
+            if (locations[i].title.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                self.locationContainer.push(new Location(locations[i]));
+            }
+        }
+    };
+    
+    
 };
 
