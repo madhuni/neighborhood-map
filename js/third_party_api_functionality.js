@@ -25,10 +25,10 @@ function getContentFromFoursquare (marker) {
             if (data.response.minivenues.length !== 0) {
                 var venue = data.response.minivenues[0];
                 var venueId = venue.id;
-                getVenueTips(venueId, clientId, clientSecret);
-                getNextVenues(venueId, clientId, clientSecret);
-                getVenuePhotoes(venueId, clientId, clientSecret);
-                getSimilarVenues(venueId, clientId, clientSecret);
+                // getVenueTips(venueId, clientId, clientSecret);
+                // getNextVenues(venueId, clientId, clientSecret);
+                // getVenuePhotoes(venueId, clientId, clientSecret);
+                // getSimilarVenues(venueId, clientId, clientSecret);
 
             } else {
                 console.log("No venues were found for the provided location query");
