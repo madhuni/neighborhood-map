@@ -37,25 +37,6 @@ var initMap = function () {
     });
 };
 
-/* Defining the bounceMarker function */
-function bounceMarker (marker) {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-};
-
-/* Defining function to stop the bouncing of the marker */
-function stopBouncingMarker (marker, time) {
-    window.setTimeout(function () {
-        marker.setAnimation(null);
-    }, time);
-};
-
-/* Defining the openInfoWindow funtion */
-function openInfoWindow (marker, infoWindow) {
-    infoWindow.marker = marker;
-    infoWindow.setContent(marker.title);
-    infoWindow.open(map, marker);
-};
-
 /* Defining the Location constructor */
 var Location = function (data) {
     this.title = ko.observable(data.title);
@@ -89,23 +70,42 @@ var ViewModel = function () {
         self.markerContainer.push(self.locationContainer()[i].marker);
     }
     
-    /* This function will activate the infoWindow corresponds to the list item clicked in the navigation */
-    self.activateInfoWindow = function (location) {
-        bounceMarker(location.marker);
-        stopBouncingMarker(location.marker, 1500);
-        // getContentFromFoursquare(location.marker);
-        openInfoWindow(location.marker, largeInfoWindow);
+    /* Defining the bounceMarker function */
+    self.bounceMarker = function (marker) {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
     };
     
-    /* Adding event listener to the markers*/
+    /* Defining function to stop the bouncing of the marker */
+    self.stopBouncingMarker = function (marker, time) {
+        window.setTimeout(function () {
+            marker.setAnimation(null);
+        }, time);
+    };
+    
+    /* Defining the openInfoWindow funtion */
+    self.openInfoWindow = function (marker, infoWindow) {
+        infoWindow.marker = marker;
+        infoWindow.setContent(marker.title);
+        infoWindow.open(map, marker);
+    };
+
+    /* This function will activate the infoWindow corresponds to the list item clicked in the navigation */
+    self.activateInfoWindow = function (location) {
+        self.bounceMarker(location.marker);
+        self.stopBouncingMarker(location.marker, 1500);
+        // getContentFromFoursquare(location.marker);
+        self.openInfoWindow(location.marker, largeInfoWindow);
+    };
+    
+    /* Adding event listener to the markers when clicked on the markers directly */
     self.addClickListener = function () {
         for (var i = 0; i< self.markerContainer().length; i++) {
             /* Adding event listener to each of the marker */
             self.markerContainer()[i].addListener('click', function() {
-                bounceMarker(this);
-                stopBouncingMarker(this, 1500);
+                self.bounceMarker(this);
+                self.stopBouncingMarker(this, 1500);
                 // getContentFromFoursquare(this);
-                openInfoWindow(this, largeInfoWindow);
+                self.openInfoWindow(this, largeInfoWindow);
             });
             
             bounds.extend(self.markerContainer()[i].position);
