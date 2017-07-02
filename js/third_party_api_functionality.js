@@ -21,39 +21,17 @@ function getContentFromFoursquare (marker) {
         success: function (data) {
             console.log("request is successful");
             // console.log(url);
-            // console.log(data);
+            // console.log(data.response.minivenues[0].id);
             if (data.response.minivenues.length !== 0) {
                 var venue = data.response.minivenues[0];
-                var venueUrl = "https://api.foursquare.com/v2/venues/" + venue.id + "/tips";
-                venueUrl += "?" + $.param({
-                    client_id: clientId,
-                    client_secret: clientSecret,
-                    v: "20170601",
-                    m: "foursquare",
-                    sort: "recent",
-                    limit: "10"
-                });
-                
-                $.ajax({
-                    url: venueUrl,
-                    dataType: "json",
-                    success: function (data) {
-                        // console.log(data);
-                        if (data.response.tips.count !== 0) {
-                            var tips = data.response.tips.items;
-                            for (var i = 0; i < tips.length; i++) {
-                                console.log(tips[i].text);
-                            }    
-                        } else {
-                            console.log("no tips are found for the location");
-                        }
-                    },
-                    error: function () {
-                        console.log("Tips are not loaded");
-                    }
-                });    
+                var venueId = venue.id;
+                getVenueTips(venueId, clientId, clientSecret);
+                getNextVenues(venueId, clientId, clientSecret);
+                getVenuePhotoes(venueId, clientId, clientSecret);
+                getSimilarVenues(venueId, clientId, clientSecret);
+
             } else {
-                console.log("No venues were found for the provied location query");
+                console.log("No venues were found for the provided location query");
             }
             
         },
@@ -62,6 +40,131 @@ function getContentFromFoursquare (marker) {
             console.log("code : " + responseObject.code);
             console.log("error msg : " + responseObject.errorDetail);
             console.log("error type: " + responseObject.errorType);
+        }
+    });
+};
+
+/* Function to retrive the tips about the places from Foursquare */
+function getVenueTips (venueId, clientId, clientSecret) {
+    var venueUrl = "https://api.foursquare.com/v2/venues/" + venueId + "/tips";
+    venueUrl += "?" + $.param({
+        client_id: clientId,
+        client_secret: clientSecret,
+        v: "20170601",
+        m: "foursquare",
+        sort: "recent",
+        limit: "10"
+    });
+    
+    $.ajax({
+        url: venueUrl,
+        dataType: "json",
+        success: function (data) {
+            // console.log(data);
+            if (data.response.tips.count !== 0) {
+                var tips = data.response.tips.items;
+                for (var i = 0; i < tips.length; i++) {
+                    // console.log(tips[i].text);
+                }    
+            } else {
+                console.log("no tips are found for the location");
+            }
+        },
+        error: function () {
+            console.log("Tips are not loaded");
+        }
+    });
+};
+
+/* Function to retrive the hours of the venue*/
+function getNextVenues (venueId, clientId, clientSecret) {
+    var venueUrl = "https://api.foursquare.com/v2/venues/" + venueId + "/nextvenues";
+    venueUrl += "?" + $.param({
+        client_id: clientId,
+        client_secret: clientSecret,
+        v: "20170601",
+        m: "foursquare",
+    });
+    
+    $.ajax({
+        url: venueUrl,
+        dataType: "json",
+        success: function (data) {
+            // console.log(data);
+            /*if (data.response.tips.count !== 0) {
+                var tips = data.response.tips.items;
+                for (var i = 0; i < tips.length; i++) {
+                    console.log(tips[i].text);
+                }    
+            } else {
+                console.log("no tips are found for the location");
+            }*/
+        },
+        error: function () {
+            console.log("Hours not found");
+        }
+    });
+};
+
+/* Function to retrive the photoes of the venue */
+function getVenuePhotoes (venueId, clientId, clientSecret) {
+    var venueUrl = "https://api.foursquare.com/v2/venues/" + venueId + "/photos";
+    venueUrl += "?" + $.param({
+        client_id: clientId,
+        client_secret: clientSecret,
+        v: "20170601",
+        m: "foursquare",
+        group: "venue",
+        limit: "5",
+        offset: "5"
+    });
+    
+    $.ajax({
+        url: venueUrl,
+        dataType: "json",
+        success: function (data) {
+            // console.log(data);
+            /*if (data.response.tips.count !== 0) {
+                var tips = data.response.tips.items;
+                for (var i = 0; i < tips.length; i++) {
+                    console.log(tips[i].text);
+                }    
+            } else {
+                console.log("no tips are found for the location");
+            }*/
+        },
+        error: function () {
+            console.log("Hours not found");
+        }
+    });
+};
+
+/* Function to retrive similar venues */
+function getSimilarVenues (venueId, clientId, clientSecret) {
+    var venueUrl = "https://api.foursquare.com/v2/venues/" + venueId + "/similar";
+    venueUrl += "?" + $.param({
+        client_id: clientId,
+        client_secret: clientSecret,
+        v: "20170601",
+        m: "foursquare",
+    });
+    
+    $.ajax({
+        url: venueUrl,
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            /*if (data.response.tips.count !== 0) {
+                var tips = data.response.tips.items;
+                for (var i = 0; i < tips.length; i++) {
+                    console.log(tips[i].text);
+                }    
+            } else {
+                console.log("no tips are found for the location");
+            }*/
+        },
+        error: function () {
+            console.log("Hours not found");
         }
     });
 };
