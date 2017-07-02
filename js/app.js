@@ -30,6 +30,11 @@ var initMap = function () {
     map.fitBounds(bounds);
     /* Applying the bindings */
     ko.applyBindings(vm);
+
+    /* Making the bounds to be fit whenever the size of the window changes */
+    $(window).resize(function () {
+        map.fitBounds(bounds);
+    });
 };
 
 /* Defining the bounceMarker function */
@@ -61,8 +66,8 @@ var Location = function (data) {
         map: map,
         title: this.title(),
         position: this.position(),
-        draggable: false
-        //animation: google.maps.Animation.DROP
+        draggable: false,
+        animation: google.maps.Animation.DROP
     });
 };
 
@@ -88,7 +93,7 @@ var ViewModel = function () {
     self.activateInfoWindow = function (location) {
         bounceMarker(location.marker);
         stopBouncingMarker(location.marker, 1500);
-        getContentFromFoursquare(location.marker);
+        // getContentFromFoursquare(location.marker);
         openInfoWindow(location.marker, largeInfoWindow);
     };
     
@@ -99,7 +104,7 @@ var ViewModel = function () {
             self.markerContainer()[i].addListener('click', function() {
                 bounceMarker(this);
                 stopBouncingMarker(this, 1500);
-                getContentFromFoursquare(this);
+                // getContentFromFoursquare(this);
                 openInfoWindow(this, largeInfoWindow);
             });
             
