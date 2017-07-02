@@ -15,7 +15,7 @@
             <div class="nav-menu">
                 <div class="nav-wrapper">
                     <div class="input-container">
-                        <input type="text" placeholder="Search your location">
+                        <input type="search" placeholder="Search your location" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
                     </div>
                     <div class="list-container">
                         <ul class="location-list" data-bind="foreach: $root.locationContainer">
