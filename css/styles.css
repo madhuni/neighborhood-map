@@ -25,13 +25,13 @@ h6 {
 }
 
 #wrapper {
-    height: 100vh;
+    height: 100%;
 }
 
 .page-header {
     margin: 0;
     padding: 15px;
-    height: 11%;
+    /*height: 11%;*/
     color: white;
     background-color: rgba(0, 0, 0, 0.88);
 }
@@ -51,7 +51,7 @@ h6 {
 }
 
 #map-container {
-    height: 89%;
+    height: calc(100vh - 73px);
     position: relative;
 /*    margin: 10px;*/
 }
@@ -163,11 +163,11 @@ h6 {
 
 @media screen and (max-width: 371px) {
     .page-header {
-        height: 16%;
+        /*height: 16%;*/
     }
 
     #map-container {
-        height: 84%;
+        height: calc(100vh - 109px);
     }
 }
 
@@ -189,6 +189,16 @@ h6 {
     padding: 2px 2px 2px 5px;
 }
 
+.wrapper-box{
+    position: absolute;
+    right: -190px;
+    transition: 0.5s;
+}
+
+.wrapper-box:hover {
+    right: 0px;
+}
+
 .weather-logo {
     width: 60px;
     display: inline-block;
@@ -197,8 +207,7 @@ h6 {
     padding-top: 8px;
     background-color: white;
     border: 1px solid black;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 5px 0 0 5px;
 }
 
 .weather-details p {
@@ -228,4 +237,18 @@ h6 {
     /*border-radius: 10px;*/
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: grey;
+}
+
+/* styling for footer starts here */
+footer {
+    /*position: absolute;*/
+    width: 100%;
+    /*bottom: 0;*/
+    background-color: rgba(0, 0, 0, 0.88);
+    color: white;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
 }
