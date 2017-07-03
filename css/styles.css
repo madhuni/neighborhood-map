@@ -92,7 +92,7 @@ h6 {
 }
 
 .input-container {
-    width: 100%;
+    width: 273px;
     margin: 5px auto 15px;
     background-color: white;
 }
@@ -169,6 +169,10 @@ h6 {
     }
 
     .location-list {
+        width: 228px !important;
+    }
+
+    .input-container {
         width: 228px !important;
     }
 }
