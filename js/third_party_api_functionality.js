@@ -195,6 +195,12 @@ function getWeather () {
                 "\n Weather : " + weather + 
                 "\n Humidity : " + humidity + "%"
                 );
+            
+            /* Adding live data to the dom elements */
+            $(".temp").text(currentTemp);
+            $(".weather").text(weather);
+            $(".humidity").text(humidity+"%");
+            
         },
         error: function () {
             console.log("Oops...Something went wrong !!! :( ");
