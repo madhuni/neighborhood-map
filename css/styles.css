@@ -69,19 +69,22 @@ h6 {
 /* Styling for the navigation panel */
 #navigation-container {
     position: relative;
-    z-index: 1;
+    /*z-index: 1;*/
+    background-color: yellow;
 }
 
 .nav-menu {
     width: 0;
     z-index: 1;
     position: fixed;
-    top:0;
+    top:72px;
     left: 0;
-    height: 100%;
+    height: calc(100% - 72px);
     overflow-x: hidden;
+    overflow-y: scroll;
     background-color: rgba(0, 0, 0, 0.88);
-    transition: .5s ease;
+    /*border-top: 2px solid grey;*/
+    transition: width .3s ease;
 }
 
 .nav-wrapper {
@@ -91,16 +94,31 @@ h6 {
 .input-container {
     width: 100%;
     margin: 5px auto 15px;
+    background-color: white;
 }
 
-.input-container input {
-    width: 100%;
+.search-icon {
+    flex-direction: column !important;
+    justify-content: center;
+    width: 15%;
     padding: 5px;
+    text-align: center;
+}
+
+.search-icon .fa-search {
     font-size: 16px;
 }
 
+.input-container input {
+    width: 85%;
+    padding: 5px;
+    font-size: 16px;
+    outline: none;
+    border: 0px;
+}
+
 .location-list {
-    width: 280px;
+    width: 273px;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -132,35 +150,6 @@ h6 {
     transition: display .5s
 }
 
-/* styling for the 'expend-button' starts here */
-
-.expend-button {
-    position: absolute;
-    top: 150px;
-    left: 300px;
-    display: none;
-    transition: all .5s ease;
-}
-
-.expend-button .hide-panel-btn {
-    width: 20px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 0px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 0;
-    font-weight: bold;
-    background-color: white;
-    box-shadow: 0.5px 0.5px 0.5px 2px rgb(201, 201, 201);
-}
-
-.expend-button .hide-panel-btn:hover {
-    background-color: white;
-    cursor: pointer;
-
-}
-
 @media screen and (max-width: 371px) {
     .page-header {
         /*height: 16%;*/
@@ -169,28 +158,41 @@ h6 {
     #map-container {
         height: calc(100vh - 109px);
     }
+
+    .nav-menu {
+        top: 108px;
+        height: calc(100% - 108px);
+    }
+
+    .open-nav {
+        width: 255px !important;
+    }
+
+    .location-list {
+        width: 228px !important;
+    }
 }
 
 #weather-details-container {
-    width: 250px;
+    width: 230px;
     z-index: 2;
     position: fixed;
-    top:300px;
+    top:150px;
     right:0px;
 }
 
 .weather-details {
-    width: 190px;
+    width: 170px;
     display: inline-block;
     font-size: 12px;
-    background-color: black;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.77);
+    color: orange;
     padding: 2px 2px 2px 5px;
 }
 
 .wrapper-box{
     position: absolute;
-    right: -190px;
+    right: -170px;
     transition: 0.5s;
 }
 
@@ -205,12 +207,17 @@ h6 {
     vertical-align: 55px;
     padding-top: 8px;
     background-color: white;
-    border: 1px solid black;
-    border-radius: 5px 0 0 5px;
+    border: 2px solid black;
+    border-radius: 10px 0 0 10px;
 }
 
 .weather-details p {
     margin-bottom: 0px;
+}
+
+/* adding degree simbol after the temperature */
+.temp:after {
+    content: "\00b0 C";
 }
 
 .open-weather {
@@ -236,18 +243,4 @@ h6 {
     /*border-radius: 10px;*/
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: grey;
-}
-
-/* styling for footer starts here */
-footer {
-    /*position: absolute;*/
-    width: 100%;
-    /*bottom: 0;*/
-    background-color: rgba(0, 0, 0, 0.88);
-    color: white;
-    text-align: center;
-}
-
-footer p {
-    margin: 0;
 }

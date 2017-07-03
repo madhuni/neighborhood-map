@@ -10,26 +10,6 @@
 </head>
 <body>
     <div id="wrapper">
-        <!-- This will be the navigation panel with fixed position -->
-        <div id="navigation-container" class="flex-box">
-            <div class="nav-menu">
-                <div class="nav-wrapper">
-                    <div class="input-container">
-                        <input type="search" placeholder="Search your location" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
-                    </div>
-                    <div class="list-container">
-                        <ul class="location-list" data-bind="foreach: $root.locationContainer">
-                            <li class="list-item" data-bind="text: $data.title, click:$root.activateInfoWindow.bind($root, $data)"></li>
-                        </ul>
-                    </div>
-                </div><!-- End of 'nav-wrapper' -->
-            </div><!-- End of 'nav-menu' -->
-            <div class="expend-button">
-                <div class="hide-panel-btn">
-                    <i class="fa fa-angle-left"></i>
-                </div>
-            </div>
-        </div> <!-- end of '#navigation-container' -->
         <header class="page-header">
             <div class="header-wrapper flex-box">
                 <div class="button-container">
@@ -40,6 +20,24 @@
                 </div>
             </div>
         </header>
+        <!-- This will be the navigation panel with fixed position -->
+        <div id="navigation-container">
+            <div class="nav-menu">
+                <div class="nav-wrapper">
+                    <div class="input-container flex-box">
+                        <div class="search-icon flex-box">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <input type="text" placeholder="Filter your location" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
+                    </div>
+                    <div class="list-container">
+                        <ul class="location-list" data-bind="foreach: $root.locationContainer">
+                            <li class="list-item" data-bind="text: $data.title, click:$root.activateInfoWindow.bind($root, $data)"></li>
+                        </ul>
+                    </div>
+                </div><!-- End of 'nav-wrapper' -->
+            </div><!-- End of 'nav-menu' -->
+        </div><!-- End of 'navigation-container -->
         <div id="map-container">
             <div class="row">
                 <div id="map" class="col-sm-12 col-md-12"></div>
@@ -51,16 +49,13 @@
                     <img src="images/weather_logo.png" class="img-responsive">
                 </div><!-- End of 'weather-logo' -->
                 <div class="weather-details">
-                    <p><span>Temperature : </span><span class="temp">26</span></p>
-                    <p><span>Weather : </span><span class="weather">Scattered Clouds</span></p>
-                    <p><span>Humidity : </span><span class="humidity">94%</span></p>
+                    <p><span>Temperature : </span><span class="temp"></span></p>
+                    <p><span>Weather : </span><span class="weather"></span></p>
+                    <p><span>Humidity : </span><span class="humidity"></span></p>
                 </div><!-- End of 'weather-detailis' -->
             </div><!-- End of 'wrapper-box' -->
         </div><!-- End of 'weather-detail-container' -->
     </div><!-- End of 'wrapper' -->
-    <!-- <footer>
-        <p>copyright@2017</p>
-    </footer> -->
     <script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
     <script src="js/libs/knockout.js"></script>
     <script src="js/model.js"></script>
