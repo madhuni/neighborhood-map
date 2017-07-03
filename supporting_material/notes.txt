@@ -147,3 +147,31 @@ that guarantees, that the next call is not made before your code was executed. I
 .weather-logo {
     border-radius: 5px 0 0 5px;
 }
+
+** CSS styling for the MAP and the header **
+#wrapper {
+    height: 100%;
+}
+.page-header {
+    margin: 0;
+    padding: 15px;
+/*    height: 11%;*/
+    color: white;
+    background-color: rgba(0, 0, 0, 0.88);
+}
+#map-container {
+    height: 86vh;
+    position: relative;
+/*    margin: 10px;*/
+}
+ 
+/* for small devices */
+@media screen and (max-width: 370px) {
+    .page-header {
+/*        height: 23%;*/
+    }
+ 
+    #map-container {
+        height: 79vh;
+    }
+}
