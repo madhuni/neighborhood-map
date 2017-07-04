@@ -83,9 +83,9 @@ var ViewModel = function () {
     };
     
     /* Defining the openInfoWindow funtion */
-    self.openInfoWindow = function (marker, infoWindow) {
+    self.openInfoWindow = function (marker, infoWindow, infoWindowContent) {
         infoWindow.marker = marker;
-        infoWindow.setContent(marker.title);
+        infoWindow.setContent(infoWindowContent);
         infoWindow.open(map, marker);
     };
 
@@ -104,8 +104,10 @@ var ViewModel = function () {
             self.markerContainer()[i].addListener('click', function() {
                 self.bounceMarker(this);
                 self.stopBouncingMarker(this, 1500);
-                // getContentFromFoursquare(this);
-                self.openInfoWindow(this, largeInfoWindow);
+                getContentFromFoursquare(this);
+                var infoWindowContent = getContentFromFoursquare(this);
+                console.log(infoWindowContent);
+                self.openInfoWindow(this, largeInfoWindow, infoWindowContent);
             });
             
             bounds.extend(self.markerContainer()[i].position);
