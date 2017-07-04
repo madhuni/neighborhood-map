@@ -1,14 +1,3 @@
-/* Below functions were used when pure javascript was used */
-function openNav() {
-    document.getElementById('navigation-container').style.width='300px';
-    document.getElementById('wrapper').style.marginLeft='300px';
-};
-
-function closeNav() {
-    document.getElementById('navigation-container').style.width='0px';
-    document.getElementById('wrapper').style.marginLeft='0px';
-}
-
 $(function () {
     /* Using jQuery to toggle the open and close the navigation panel */
     var hamburger = $('.fa-bars');
@@ -17,14 +6,42 @@ $(function () {
     var closeButton = $('.expend-button');
     
     hamburger.on('click', function () {
-//        console.log("I am working fine");
+        // console.log("I am working fine");
         nav.toggleClass('open-nav');
         closeButton.toggleClass('display-btn');
+        $('#map-container').toggleClass('set-margin');
     });
-
-    closeButton.on('click', function () {
-//        console.log("I am working fine");
-        nav.toggleClass('open-nav');
-        closeButton.toggleClass('display-btn');
+    
+    /* Adding event to track the change width of any dom element */
+    $.event.special.widthChanged = {
+        remove: function() {
+            $(this).children('iframe.width-changed').remove();
+        },
+        add: function () {
+            var elm = $(this);
+            var iframe = elm.children('iframe.width-changed');
+            if (!iframe.length) {
+                iframe = $('<iframe/>').addClass('width-changed').prependTo(this);
+            }
+            var oldWidth = elm.width();
+            function elmResized() {
+                var width = elm.width();
+                if (oldWidth != width) {
+                    elm.trigger('widthChanged', [width, oldWidth]);
+                    oldWidth = width;
+                }
+            }
+            var timer = 0;
+            var ielm = iframe[0];
+            (ielm.contentWindow || ielm).onresize = function() {
+                clearTimeout(timer);
+                timer = setTimeout(elmResized, 20);
+            };
+        }
+    }
+    
+    /* Applying the width tracker event to the 'map-container' */
+    $("#map-container").on('widthChanged', function() {
+        map.fitBounds(bounds);
     });
 });
