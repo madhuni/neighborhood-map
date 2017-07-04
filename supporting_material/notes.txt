@@ -175,3 +175,8 @@ that guarantees, that the next call is not made before your code was executed. I
         height: 79vh;
     }
 }
+
+
+** Using Deffered calls in javascript **
+
+https://stackoverflow.com/questions/14754619/jquery-ajax-success-callback-function-definition/14754681#14754681
