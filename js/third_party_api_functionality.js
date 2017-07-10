@@ -1,9 +1,7 @@
-function getContentFromFoursquare (marker) {
+function getContentFromFoursquare (marker, largeInfoWindow) {
     var infoContent;
     var venueCordinates = marker.position;
-    // console.log(venueCordinates);
-    // console.log(marker.title);
-    // console.log(venueCordinates.lat() + " and " + venueCordinates.lng());
+    var infoWindow = largeInfoWindow;
 	var clientId = "UPSN54SKPJL2AIQ4QL55UDZADYQKDP545LTWKAZAUN5MVGLN";
 	var clientSecret = "ZPRUPW2TZYLW4SIE41RXUZMKJYCD3TE25EPNMP3305ZOCYTK";
 	var url = "https://api.foursquare.com/v2/venues/suggestcompletion";
@@ -21,34 +19,28 @@ function getContentFromFoursquare (marker) {
         dataType: 'json',
         success: function (data) {
             console.log("request is successful");
-            // console.log(url);
-            // console.log(data.response.minivenues[0].id);
             if (data.response.minivenues.length !== 0) {
                 var venue = data.response.minivenues[0];
                 var venueId = venue.id;
-                
-                getVenueTips(venueId, clientId, clientSecret, marker);
-                // debugger;
-                // console.log(infoContent);
-                // return infoContent;
-                // getNextVenues(venueId, clientId, clientSecret);
-                // getVenuePhotoes(venueId, clientId, clientSecret);
-                // getSimilarVenues(venueId, clientId, clientSecret);
+                /* calling the function to get the venue tips */
+                getVenueTips(venueId, clientId, clientSecret, marker, infoWindow);
             } else {
-                console.log("No venues were found for the provided location query");
+                // showing the msg if no data is available for the currently clicked venue
+                infoWindow.setContent('<h4>Sorry !!! No Data is available for this venue on Foursquare.</h4>');
             }
         },
         error: function (data) {
+            infoWindow.setContent('<h4>Oops!!! Something went wrong.</h4>');
             var responseObject = JSON.parse(data.responseText).meta;
-            console.log("code : " + responseObject.code);
-            console.log("error msg : " + responseObject.errorDetail);
-            console.log("error type: " + responseObject.errorType);
+            // console.log("code : " + responseObject.code);
+            // console.log("error msg : " + responseObject.errorDetail);
+            // console.log("error type: " + responseObject.errorType);
         }
     });
 };
 
 /* Function to retrive the tips about the places from Foursquare */
-function getVenueTips (venueId, clientId, clientSecret, marker) {
+function getVenueTips (venueId, clientId, clientSecret, marker, infoWindow) {
     var content = "";
     var tipsArray = [];
     var venueUrl = "https://api.foursquare.com/v2/venues/" + venueId + "/tips";
@@ -61,60 +53,32 @@ function getVenueTips (venueId, clientId, clientSecret, marker) {
         limit: "10"
     });
     
-//    $.ajax({
-//        url: venueUrl,
-//        dataType: "json",
-//        success: function (data) {
-//            // console.log(data);
-//            if (data.response.tips.count !== 0) {
-//                var tips = data.response.tips.items;
-//                for (var i = 0; i < tips.length; i++) {
-//                    // console.log(tips[i].text);
-//                    tipsArray.push('<li>' + tips[i].text + '</li>');
-//                }
-//                // console.log(tipsArray);
-//                content += '<h2 class="info-header">' + marker.title.toUpperCase() + '</h2>' + '<h3 class="info-sub-header">Most Recent Comments</h3>' + '<ol class="tips">' + tipsArray.join('') + '</ol>';
-//                // console.log(content);
-//            } else {
-//                console.log("no tips are found for the location");
-//            }
-//             console.log(content);
-//            // debugger;
-//            return content;
-//        },
-//        error: function () {
-//            
-//        }
-//    });
-    
-    var getVenueTips = $.ajax({
-        url: venueUrl,
-        dataType: 'json'
-    });
-    
-    getVenueTips.done(function (data) {
-        if (data.response.tips.count !== 0) {
-            var tips = data.response.tips.items;
-            for (var i = 0; i < tips.length; i++) {
-                // console.log(tips[i].text);
-                tipsArray.push('<li>' + tips[i].text + '</li>');
-            }
-            // console.log(tipsArray);
-            this.content += '<h2 class="info-header">' + marker.title.toUpperCase() + '</h2>' + '<h3 class="info-sub-header">Most Recent Comments</h3>' + '<ol class="tips">' + tipsArray.join('') + '</ol>';
-            // console.log(content);
-        } else {
-            console.log("no tips are found for the location");
-        }
-          console.log(this.content);
-        // debugger;
-    });
-    
-    getVenueTips.fail(function () {
-        console.log("Tips are not loaded");
-    });
-    
-    console.log(content);
-    return content;
+   $.ajax({
+       url: venueUrl,
+       dataType: "json",
+       success: function (data) {
+           // console.log(data);
+           if (data.response.tips.count !== 0) {
+               var tips = data.response.tips.items;
+               
+               for (var i = 0; i < tips.length; i++) {
+                   tipsArray.push('<li>' + tips[i].text + '</li>');
+               }
+                
+                content += '<h4 class="info-header">' + marker.title.toUpperCase() + '</h4>' + '<h6 class="info-sub-header">Most Recent Comments</h6>' + '<ol class="tips">' + tipsArray.join('') + '</ol>';
+                
+                /* Adding the content to the infowindow once received from Foursquare */
+                infoWindow.setContent(content);
+                infoWindow.open(map, marker);
+
+           } else {
+               infoWindow.setContent("<h4>Sorry!!! Currently no tips are available for the location.</h4>");
+           }
+       },
+       error: function () {
+           infoWindow.setContent("<h4>Oops!!! Something went wrong.</h4>");
+       }
+   });
 };
 
 /* Function to retrive the hours of the venue*/
