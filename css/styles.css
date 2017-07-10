@@ -187,6 +187,8 @@ h6 {
 
 }
 
+/* Styling for the weather widget starts here */
+
 #weather-details-container {
     width: 230px;
     z-index: 2;
@@ -236,6 +238,31 @@ h6 {
 
 .open-weather {
     width: 250px !important;
+}
+
+/* Styling for the info-window starts here */
+.info-container {
+    padding: 0 10px 0;
+}
+
+.info-header {
+    padding: 0 5px 0;
+}
+
+.info-hr-rule {
+    margin: 5px 0;
+}
+
+.info-sub-header {
+    margin: 10px 0 5px;
+}
+
+.tips {
+    padding-left: 25px;
+}
+
+.tip-list-item {
+    padding: 5px 0 5px;
 }
 
 /* Styling for the scrollbar starts here */
