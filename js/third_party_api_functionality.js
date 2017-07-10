@@ -26,11 +26,21 @@ function getContentFromFoursquare (marker, largeInfoWindow) {
                 getVenueTips(venueId, clientId, clientSecret, marker, infoWindow);
             } else {
                 // showing the msg if no data is available for the currently clicked venue
-                infoWindow.setContent('<h4>Sorry !!! No Data is available for this venue on Foursquare.</h4>');
+                var content = "";
+                content += '<div class="info-container">';
+                content += '<h4 class="info-header text-center">' + marker.title.toUpperCase() + '</h4>'; 
+                content += '<hr class="info-hr-rule">'
+                content += '<h5 class="info-sub-header text-center">Sorry !!! No Data is available for this venue on Foursquare.</h5>';
+                content += '</div>';
+                infoWindow.setContent(content);
             }
         },
         error: function (data) {
-            infoWindow.setContent('<h4>Oops!!! Something went wrong.</h4>');
+            var content = "";
+            content += '<div class="info-container">';
+            content += '<h5 class="info-sub-header text-center">Oops!!! Something went wrong.</h5>';
+            content += '</div>';
+            infoWindow.setContent(content);
             var responseObject = JSON.parse(data.responseText).meta;
             // console.log("code : " + responseObject.code);
             // console.log("error msg : " + responseObject.errorDetail);
@@ -62,21 +72,33 @@ function getVenueTips (venueId, clientId, clientSecret, marker, infoWindow) {
                var tips = data.response.tips.items;
                
                for (var i = 0; i < tips.length; i++) {
-                   tipsArray.push('<li>' + tips[i].text + '</li>');
+                   tipsArray.push('<li class="tip-list-item">' + tips[i].text + '</li>');
                }
-                
-                content += '<h4 class="info-header">' + marker.title.toUpperCase() + '</h4>' + '<h6 class="info-sub-header">Most Recent Comments</h6>' + '<ol class="tips">' + tipsArray.join('') + '</ol>';
+                content += '<div class="info-container">';
+                content += '<h4 class="info-header text-center">' + marker.title.toUpperCase() + '</h4>'; 
+                content += '<hr class="info-hr-rule">'
+                content += '<h5 class="info-sub-header">Most Recent Comments :</h5>';
+                content += '<ol class="tips">' + tipsArray.join('') + '</ol>';
+                content += '</div>';
                 
                 /* Adding the content to the infowindow once received from Foursquare */
                 infoWindow.setContent(content);
                 infoWindow.open(map, marker);
 
            } else {
-               infoWindow.setContent("<h4>Sorry!!! Currently no tips are available for the location.</h4>");
+                content += '<div class="info-container">';
+                content += '<h4 class="info-header text-center">' + marker.title.toUpperCase() + '</h4>'; 
+                content += '<hr class="info-hr-rule">'
+                content += '<h5 class="info-sub-header text-center">Sorry!!! Currently no tips are available for the location.</h5>';
+                content += '</div>';
+                infoWindow.setContent(content);
            }
        },
-       error: function () {
-           infoWindow.setContent("<h4>Oops!!! Something went wrong.</h4>");
+        error: function () {
+            content += '<div class="info-container">';
+            content += '<h5 class="info-sub-header text-center">Oops!!! Something went wrong.</h5>';
+            content += '</div>';
+            infoWindow.setContent(content);
        }
    });
 };
