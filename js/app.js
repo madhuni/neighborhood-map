@@ -83,9 +83,10 @@ var ViewModel = function () {
     };
     
     /* Defining the openInfoWindow funtion */
-    self.openInfoWindow = function (marker, infoWindow, infoWindowContent) {
-        infoWindow.marker = marker;
-        infoWindow.setContent(infoWindowContent);
+    self.openInfoWindow = function (marker, infoWindow) {
+        // infoWindow.marker = marker;
+        infoWindow.setOptions({maxWidth:550});
+        infoWindow.setContent('<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>');
         infoWindow.open(map, marker);
     };
 
@@ -93,8 +94,8 @@ var ViewModel = function () {
     self.activateInfoWindow = function (location) {
         self.bounceMarker(location.marker);
         self.stopBouncingMarker(location.marker, 1500);
-        // getContentFromFoursquare(location.marker);
         self.openInfoWindow(location.marker, largeInfoWindow);
+        getContentFromFoursquare(location.marker, largeInfoWindow);
     };
     
     /* Adding event listener to the markers when clicked on the markers directly */
@@ -104,10 +105,8 @@ var ViewModel = function () {
             self.markerContainer()[i].addListener('click', function() {
                 self.bounceMarker(this);
                 self.stopBouncingMarker(this, 1500);
-                getContentFromFoursquare(this);
-                var infoWindowContent = getContentFromFoursquare(this);
-                console.log(infoWindowContent);
-                self.openInfoWindow(this, largeInfoWindow, infoWindowContent);
+                self.openInfoWindow(this, largeInfoWindow);
+                getContentFromFoursquare(this, largeInfoWindow);
             });
             
             bounds.extend(self.markerContainer()[i].position);
