@@ -6,11 +6,11 @@ var initMap = function () {
     var mapOptions = {
         center: {lat: 12.9715987,lng: 77.5945627},
         zoom: 13,
-        mapTypeId: 'roadmap',
-        scrollwheel: false,
-        scaleControl: false,
-        rotateControl: false,
-        zoomControl: false
+        mapTypeId: 'roadmap'
+        // scrollwheel: false,
+        // scaleControl: false,
+        // rotateControl: false,
+        // zoomControl: false
     };
     
     /* Initializing the map object */
