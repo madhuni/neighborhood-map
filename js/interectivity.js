@@ -11,6 +11,10 @@ $(function () {
         closeButton.toggleClass('display-btn');
         $('#map-container').toggleClass('set-margin');
     });
+
+    /* Opening the tool-tip on the hamburger */
+    
+    $('[data-toggle="tooltip"]').tooltip(); 
     
     /* Adding event to track the change width of any dom element */
     $.event.special.widthChanged = {
