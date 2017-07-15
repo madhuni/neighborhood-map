@@ -8,4 +8,5 @@ The URL for the app is [https://madhuni.github.io/neighborhood-map/](https://mad
 * Bootstarp
 * Javascript
 * jQuery
+* Good Maps API
 * Knockout JS
