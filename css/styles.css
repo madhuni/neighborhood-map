@@ -238,7 +238,7 @@ h6 {
 }
 
 /* adding degree simbol after the temperature */
-.temp .changed:after {
+.temp.changed:after {
     content: "\00b0 C";
 }
 
