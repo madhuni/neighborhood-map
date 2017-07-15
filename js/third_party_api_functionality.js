@@ -198,7 +198,7 @@ function getSimilarVenues (venueId, clientId, clientSecret) {
 
 /* Function to retrive weather for the city */
 function getWeather () {
-    var apiKey = "a71fa89ba24601d8940995e04f9d6bb6KANISHKA";
+    var apiKey = "a71fa89ba24601d8940995e04f9d6bb6";
     var weatherUrl = "http://api.openweathermap.org/data/2.5/weather";
     var cityId = "1277333";
     weatherUrl += "?" + $.param({
