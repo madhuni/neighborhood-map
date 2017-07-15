@@ -238,7 +238,7 @@ h6 {
 }
 
 /* adding degree simbol after the temperature */
-.temp:after {
+.temp .changed:after {
     content: "\00b0 C";
 }
 
@@ -247,6 +247,11 @@ h6 {
 }
 
 /* Styling for the info-window starts here */
+
+.fa-spinner {
+    font-size: 14px;
+}
+
 .info-container {
     padding: 0 10px 0;
 }
