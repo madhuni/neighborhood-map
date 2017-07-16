@@ -186,11 +186,12 @@ h6 {
     .input-container {
         width: 228px !important;
     }
+}
 
+@media screen and (max-width: 650px) {
     .set-margin{ 
         margin-left: 0 !important;
     }
-
 }
 
 /* Styling for the weather widget starts here */
