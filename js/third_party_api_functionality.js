@@ -77,7 +77,7 @@ function getVenueTips (venueId, clientId, clientSecret, marker, infoWindow) {
                 content += '<div class="info-container">';
                 content += '<h4 class="info-header text-center">' + marker.title.toUpperCase() + '</h4>'; 
                 content += '<hr class="info-hr-rule">'
-                content += '<h5 class="info-sub-header">Most Recent Comments :</h5>';
+                content += '<h5 class="info-sub-header">Most Recent Comments from Foursquare :</h5>';
                 content += '<ol class="tips">' + tipsArray.join('') + '</ol>';
                 content += '</div>';
                 
