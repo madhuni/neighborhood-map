@@ -53,7 +53,10 @@ h6 {
 .tool-tip + .tooltip > .tooltip-inner {
     background-color: white;
     color: black;
-    font-size: 12px;
+    font-size: 11px;
+    border-radius: 0;
+    border: 0.5px solid black;
+    /*box-shadow: 2px 2px 0.5px 0.5px grey;*/
 }
 
 #map-container {
@@ -144,6 +147,13 @@ h6 {
     transition: color .5s;
 }
 
+.active {
+    background-color: rgb(39, 35, 35);
+    border-left: 2px solid orange;
+    padding-left: 5px;
+    color: white;
+}
+
 .list-item:hover {
     background-color: rgb(39, 35, 35);
     border-left: 2px solid orange;
@@ -151,6 +161,7 @@ h6 {
     color: white;
     cursor: pointer;
 }
+
 
 .open-nav {
     width: 300px !important;
@@ -191,6 +202,10 @@ h6 {
 @media screen and (max-width: 650px) {
     .set-margin{ 
         margin-left: 0 !important;
+    }
+
+    .tool-tip + .tooltip > .tooltip-inner {
+        display: none;
     }
 }
 
