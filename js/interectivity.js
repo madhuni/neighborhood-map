@@ -48,4 +48,19 @@ $(function () {
     $("#map-container").on('widthChanged', function() {
         map.fitBounds(bounds);
     });
+
+    /* Applying the active class while clicking the link item */
+    /*var listElement = $('.list-item');
+    // console.log(listElement);
+
+    listElement.on('click', function() {
+        $(this).addClass('active');
+        for (var i = 0; i < listElement.length; i++) {
+            var status = $(listElement[i]).hasClass('active');
+            if (status === true) {
+                $(listElement[i]).removeClass('active');
+                console.log('active class is removed');
+            }
+        }
+    });*/
 });
