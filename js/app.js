@@ -66,8 +66,8 @@ var ViewModel = function () {
     }
     
     /* Adding markers to the markerContainer */
-    for (var i = 0; i < self.locationContainer().length; i++) {
-        self.markerContainer.push(self.locationContainer()[i].marker);
+    for (var j = 0; j < self.locationContainer().length; j++) {
+        self.markerContainer.push(self.locationContainer()[j].marker);
     }
     
     /* Defining the bounceMarker function */
@@ -111,7 +111,7 @@ var ViewModel = function () {
             
             bounds.extend(self.markerContainer()[i].position);
         }
-    }
+    };
     
     /* function to add the markers*/
     self.addMarkers = function (locationContainer) {
