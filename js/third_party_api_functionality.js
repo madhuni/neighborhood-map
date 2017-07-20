@@ -41,7 +41,7 @@ function getContentFromFoursquare (marker, largeInfoWindow) {
             content += '<h5 class="info-sub-header text-center">Oops!!! Something went wrong.</h5>';
             content += '</div>';
             infoWindow.setContent(content);
-            var responseObject = JSON.parse(data.responseText).meta;
+            // var responseObject = JSON.parse(data.responseText).meta;
             // console.log("code : " + responseObject.code);
             // console.log("error msg : " + responseObject.errorDetail);
             // console.log("error type: " + responseObject.errorType);
