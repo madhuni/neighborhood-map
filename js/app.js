@@ -91,24 +91,26 @@ var ViewModel = function () {
     };
 
     /* This function will activate the infoWindow corresponds to the list item clicked in the navigation */
-    self.activateInfoWindow = function (location) {
-        self.bounceMarker(location.marker);
-        self.stopBouncingMarker(location.marker, 1500);
-        self.openInfoWindow(location.marker, largeInfoWindow);
-        getContentFromFoursquare(location.marker, largeInfoWindow);
+    self.activateInfoWindow = function (marker) {
+        self.bounceMarker(marker);
+        self.stopBouncingMarker(marker, 1500);
+        self.openInfoWindow(marker, largeInfoWindow);
+        getContentFromFoursquare(marker, largeInfoWindow);
     };
     
+    /* This function will activate the infoWindow corresponds to ther marker on the map */
+    self.activateMarker = function () {
+        self.bounceMarker(this);
+        self.stopBouncingMarker(this, 1500);
+        self.openInfoWindow(this, largeInfoWindow);
+        getContentFromFoursquare(this, largeInfoWindow);
+    };
+
     /* Adding event listener to the markers when clicked on the markers directly */
     self.addClickListener = function () {
         for (var i = 0; i< self.markerContainer().length; i++) {
             /* Adding event listener to each of the marker */
-            self.markerContainer()[i].addListener('click', function() {
-                self.bounceMarker(this);
-                self.stopBouncingMarker(this, 1500);
-                self.openInfoWindow(this, largeInfoWindow);
-                getContentFromFoursquare(this, largeInfoWindow);
-            });
-            
+            self.markerContainer()[i].addListener('click', self.activateMarker);
             bounds.extend(self.markerContainer()[i].position);
         }
     };
