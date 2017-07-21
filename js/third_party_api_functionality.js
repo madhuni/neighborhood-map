@@ -18,7 +18,7 @@ function getContentFromFoursquare (marker, largeInfoWindow) {
         url: url,
         dataType: 'json',
         success: function (data) {
-            console.log("request is successful");
+            // console.log("request is successful");
             if (data.response.minivenues.length !== 0) {
                 var venue = data.response.minivenues[0];
                 var venueId = venue.id;
@@ -30,7 +30,7 @@ function getContentFromFoursquare (marker, largeInfoWindow) {
                 content += '<div class="info-container">';
                 content += '<h4 class="info-header text-center">' + marker.title.toUpperCase() + '</h4>'; 
                 content += '<hr class="info-hr-rule">'
-                content += '<h5 class="info-sub-header text-center">Sorry !!! No Data is available for this venue on Foursquare.</h5>';
+                content += '<h5 class="info-sub-header text-center" style="color:red;">Sorry !!! No Data is available for this venue on Foursquare.</h5>';
                 content += '</div>';
                 infoWindow.setContent(content);
             }
@@ -52,7 +52,7 @@ function getContentFromFoursquare (marker, largeInfoWindow) {
                 infoWindow.setContent(content);
             }
             // console.log(xhr.responseText);
-            // var responseObject = JSON.parse(data.responseText).meta;
+            // var responseObject = JSON.parse(xhr.responseText).meta;
             // console.log("code : " + responseObject.code);
             // console.log("error msg : " + responseObject.errorDetail);
             // console.log("error type: " + responseObject.errorType);
@@ -100,7 +100,7 @@ function getVenueTips (venueId, clientId, clientSecret, marker, infoWindow) {
                 content += '<div class="info-container">';
                 content += '<h4 class="info-header text-center">' + marker.title.toUpperCase() + '</h4>'; 
                 content += '<hr class="info-hr-rule">'
-                content += '<h5 class="info-sub-header text-center">Sorry!!! Currently no tips are available for the location.</h5>';
+                content += '<h5 class="info-sub-header text-center" style="color:red;">Unable to fetch Foursquare tips for the venue.</h5>';
                 content += '</div>';
                 infoWindow.setContent(content);
            }
