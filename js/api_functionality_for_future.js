@@ -116,3 +116,53 @@ function getDetailFromGoogle () {
 };
 
 // getDetailFromGoogle();
+
+/* Function to retrive weather for the city */
+function getWeather () {
+    var apiKey = "a71fa89ba24601d8940995e04f9d6bb6";
+    var weatherUrl = "http://api.openweathermap.org/data/2.5/weather";
+    var cityId = "1277333";
+    weatherUrl += "?" + $.param({
+        id: cityId,
+        APPID: apiKey,
+        units: "metric"
+    });
+
+    var weatherPromise = $.ajax({
+        url: weatherUrl,
+        dataType: 'json'
+    });
+    
+    weatherPromise.done(function (data) {
+        // console.log("weather is fetched");
+        // console.log(data);
+        var currentTemp = data.main.temp;
+        var maxTemp = data.main.temp_max;
+        var minTemp = data.main.temp_min;
+        var humidity = data.main.humidity;
+        var weather = data.weather[0].description;
+        console.log("Temperature is : " + currentTemp + 
+            "\n Weather : " + weather + 
+            "\n Humidity : " + humidity + "%"
+            );
+        
+        /* Adding live data to the dom elements */
+        $(".temp").text(currentTemp);
+        $(".weather").text(weather);
+        $(".humidity").text(humidity+"%");
+    });
+    
+    weatherPromise.fail(function (e) {
+        console.log("Oops...Something went wrong !!! :( ");
+        $(".temp").text("No Content");
+        $(".weather").text("No Content");
+        $(".humidity").text("No Content");
+        $(".temp").toggleClass("changed");
+    });
+};
+
+// $(function() {
+//     /* Calling the funtion after a time interval of 10mins */
+//     getWeather(); // initializing the funtion on the load of the app
+//     window.setInterval("getWeather()", 600000);
+// });

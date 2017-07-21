@@ -35,12 +35,23 @@ function getContentFromFoursquare (marker, largeInfoWindow) {
                 infoWindow.setContent(content);
             }
         },
-        error: function (data) {
-            var content = "";
-            content += '<div class="info-container">';
-            content += '<h5 class="info-sub-header text-center">Oops!!! Something went wrong.</h5>';
-            content += '</div>';
-            infoWindow.setContent(content);
+        error: function (xhr) {
+            if (xhr.responseText !== undefined) {
+                var content = "";
+                content += '<div class="info-container">';
+                content += '<h5 class="info-sub-header text-center" style="color:red;">Currently unable to fetch Fourquare data !!!</h5>';
+                content += '<p class="text-center" style="font-size:14px; font-weight:bold;color:blue;">Please try again later.</p>';
+                content += '</div>';
+                infoWindow.setContent(content);
+            } else {
+                var content = "";
+                content += '<div class="info-container">';
+                content += '<h5 class="info-sub-header text-center" style="color:red;">It seems to have problem with your Internet Connection.</h5>';
+                content += '<p class="text-center" style="font-size:14px; font-weight:bold;color:blue;">Please try again later.</p>';
+                content += '</div>';
+                infoWindow.setContent(content);
+            }
+            // console.log(xhr.responseText);
             // var responseObject = JSON.parse(data.responseText).meta;
             // console.log("code : " + responseObject.code);
             // console.log("error msg : " + responseObject.errorDetail);
@@ -94,61 +105,13 @@ function getVenueTips (venueId, clientId, clientSecret, marker, infoWindow) {
                 infoWindow.setContent(content);
            }
        },
-        error: function () {
+        error: function (xhr) {
+            var content = "";
             content += '<div class="info-container">';
-            content += '<h5 class="info-sub-header text-center">Oops!!! Something went wrong.</h5>';
+            content += '<h5 class="info-sub-header text-center" style="color:red;">Currently unable to fetch Fourquare data !!!</h5>';
+            content += '<p class="text-center" style="font-size:14px; font-weight:bold;color:blue;">Please try again later.</p>';
             content += '</div>';
             infoWindow.setContent(content);
        }
    });
 };
-
-/* Function to retrive weather for the city */
-function getWeather () {
-    var apiKey = "a71fa89ba24601d8940995e04f9d6bb6";
-    var weatherUrl = "http://api.openweathermap.org/data/2.5/weather";
-    var cityId = "1277333";
-    weatherUrl += "?" + $.param({
-        id: cityId,
-        APPID: apiKey,
-        units: "metric"
-    });
-
-    var weatherPromise = $.ajax({
-        url: weatherUrl,
-        dataType: 'json'
-    });
-    
-    weatherPromise.done(function (data) {
-        // console.log("weather is fetched");
-        // console.log(data);
-        var currentTemp = data.main.temp;
-        var maxTemp = data.main.temp_max;
-        var minTemp = data.main.temp_min;
-        var humidity = data.main.humidity;
-        var weather = data.weather[0].description;
-        console.log("Temperature is : " + currentTemp + 
-            "\n Weather : " + weather + 
-            "\n Humidity : " + humidity + "%"
-            );
-        
-        /* Adding live data to the dom elements */
-        $(".temp").text(currentTemp);
-        $(".weather").text(weather);
-        $(".humidity").text(humidity+"%");
-    });
-    
-    weatherPromise.fail(function (e) {
-        console.log("Oops...Something went wrong !!! :( ");
-        $(".temp").text("No Content");
-        $(".weather").text("No Content");
-        $(".humidity").text("No Content");
-        $(".temp").toggleClass("changed");
-    });
-};
-
-$(function() {
-    /* Calling the funtion after a time interval of 10mins */
-    getWeather(); // initializing the funtion on the load of the app
-    window.setInterval("getWeather()", 600000);
-});

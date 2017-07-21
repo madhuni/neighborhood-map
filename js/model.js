@@ -12,12 +12,6 @@ var locations = [
         placeId: 'ChIJmfKV7KUWrjsRPLIaeB5UMCw'
     },
     {
-        title: 'Matteo Coffea',
-        position: {lat: 12.9743821, lng: 77.6070038},
-        address: '2, Church Street, Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka 560001, India',
-        placeId: 'ChIJd1HW9X0WrjsRlH0QQRJMAwk'
-    },
-    {
         title: "Srinathji's",
         position: {lat: 12.9482427, lng: 77.69835139999999},
         address: '#5, Ground Floor, More Mega Store Premises, KBR Complex, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037, India',
@@ -46,12 +40,6 @@ var locations = [
         position: {lat: 12.996269, lng: 77.69527099999999},
         address: '60/2, ITPL Road, Bengaluru, Karnataka 560048, India',
         placeId: 'ChIJtV2JQAsRrjsRp4HCbaob4R0'
-    },
-    {
-        title: 'Subiksha Courette',
-        position: {lat: 12.9519755, lng: 77.6979947},
-        address: '1, Tulasi Theatre Road, Marathahalli Village, Marathahalli, Bengaluru, Karnataka 560037, India',
-        placeId: 'ChIJdUnHIcsTrjsRyaes8rbynFM'
     },
     {
         title: 'ISKCON',
@@ -100,12 +88,6 @@ var locations = [
         position: {lat: 12.934465, lng: 77.616056},
         address: '105, 2nd & 3rd Floors, Vikas Tech Park, 5th Block 5th Block, Koramangala, Jyoti Nivas College Rd, Koramangala, Bengaluru, Karnataka 560095, India',
         placeId: 'ChIJjzdGKk4UrjsRKqnBh8iwPYQ'
-    },
-    {
-        title: 'Yogisthaan',
-        position: {lat: 12.9810037, lng: 77.6383742},
-        address: 'Plot no. 89, 11th Cross Road, 60 Feet Road, Stage 1, Indiranagar, Near BDA Complex, Bengaluru, Karnataka 560038, India',
-        placeId: 'ChIJdU1tOrsWrjsRa8hTEg4Fuug'
     },
     {
         title: 'Truffles',
