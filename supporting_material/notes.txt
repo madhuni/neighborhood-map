@@ -177,6 +177,33 @@ that guarantees, that the next call is not made before your code was executed. I
 }
 
 
+** Removed data from Model **
+{
+  title: 'Matteo Coffea',
+  position: {lat: 12.9743821, lng: 77.6070038},
+  address: '2, Church Street, Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka 560001, India',
+  placeId: 'ChIJd1HW9X0WrjsRlH0QQRJMAwk'
+},
+{
+  title: 'Subiksha Courette',
+  position: {lat: 12.9519755, lng: 77.6979947},
+  address: '1, Tulasi Theatre Road, Marathahalli Village, Marathahalli, Bengaluru, Karnataka 560037, India',
+  placeId: 'ChIJdUnHIcsTrjsRyaes8rbynFM'
+},
+{
+  title: 'Yogisthaan',
+  position: {lat: 12.9810037, lng: 77.6383742},
+  address: 'Plot no. 89, 11th Cross Road, 60 Feet Road, Stage 1, Indiranagar, Near BDA Complex, Bengaluru, Karnataka 560038, India',
+  placeId: 'ChIJdU1tOrsWrjsRa8hTEg4Fuug'
+}
+
 ** Using Deffered calls in javascript **
 
 https://stackoverflow.com/questions/14754619/jquery-ajax-success-callback-function-definition/14754681#14754681
+
+
+** Requirements to meet specifications for the project **
+1) Use Knockout bindings to update the content in weather widget not jQuery --> done
+2) Include error handling for the map (https://discussions.udacity.com/t/handling-google-maps-in-async-and-fallback/34282) & (https://discussions.udacity.com/t/handling-google-maps-in-async-and-fallback/34282/25) --> done
+3) Make error msgs for the foursquare more descriptive (instead of just saying Oops !! Something went wrong) --> done
+4) Remove the data from model which don't have any data on foursquare --> done

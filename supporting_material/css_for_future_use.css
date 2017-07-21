@@ -1,0 +1,52 @@
+/* Styling for the weather widget starts here */
+
+#weather-details-container {
+    width: 230px;
+    z-index: 2;
+    position: fixed;
+    top:150px;
+    right:0px;
+}
+
+.weather-details {
+    width: 170px;
+    display: inline-block;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.77);
+    color: orange;
+    padding: 2px 2px 2px 5px;
+}
+
+.wrapper-box{
+    position: absolute;
+    right: -170px;
+    transition: 0.5s;
+}
+
+.wrapper-box:hover {
+    right: 0px;
+}
+
+.weather-logo {
+    width: 60px;
+    display: inline-block;
+    height: 55px;
+    vertical-align: 55px;
+    padding-top: 8px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px 0 0 10px;
+}
+
+.weather-details p {
+    margin-bottom: 0px;
+}
+
+/* adding degree simbol after the temperature */
+.temp.changed:after {
+    content: "\00b0 C";
+}
+
+.open-weather {
+    width: 250px !important;
+}
