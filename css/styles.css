@@ -59,6 +59,7 @@ h6 {
     /*box-shadow: 2px 2px 0.5px 0.5px grey;*/
 }
 
+/* Styling for the map starts here */
 #map-container {
     height: calc(100vh - 73px);
     position: relative;
@@ -74,6 +75,36 @@ h6 {
     width: 100%;
     height: calc(100% - 0px);
     overflow: hidden;
+}
+
+/* Styling for the error msg for map starts here */
+.gm-error-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.gm-error-container {
+    height: 100%;
+    width: 100%;
+    display: table;
+    background-color: rgba(222, 219, 219, 0.85);;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.gm-error-content {
+    border-radius: 1px;
+    padding-top: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+    position: static;
+    vertical-align: middle;
+    display: table-cell;
+    color: #676262;
 }
 
 .set-margin {
@@ -207,59 +238,6 @@ h6 {
     .tool-tip + .tooltip > .tooltip-inner {
         display: none;
     }
-}
-
-/* Styling for the weather widget starts here */
-
-#weather-details-container {
-    width: 230px;
-    z-index: 2;
-    position: fixed;
-    top:150px;
-    right:0px;
-}
-
-.weather-details {
-    width: 170px;
-    display: inline-block;
-    font-size: 12px;
-    background-color: rgba(0, 0, 0, 0.77);
-    color: orange;
-    padding: 2px 2px 2px 5px;
-}
-
-.wrapper-box{
-    position: absolute;
-    right: -170px;
-    transition: 0.5s;
-}
-
-.wrapper-box:hover {
-    right: 0px;
-}
-
-.weather-logo {
-    width: 60px;
-    display: inline-block;
-    height: 55px;
-    vertical-align: 55px;
-    padding-top: 8px;
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 10px 0 0 10px;
-}
-
-.weather-details p {
-    margin-bottom: 0px;
-}
-
-/* adding degree simbol after the temperature */
-.temp.changed:after {
-    content: "\00b0 C";
-}
-
-.open-weather {
-    width: 250px !important;
 }
 
 /* Styling for the info-window starts here */

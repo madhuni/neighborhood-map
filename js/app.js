@@ -37,6 +37,22 @@ var initMap = function () {
     });
 };
 
+/* Defining the error handling function for google map */
+var googleError = function () {
+    var content = "";
+    content += '<div class="gm-error-wrapper">';
+    content += '<div class="gm-error-container">';
+    content += '<div class="gm-error-content">';
+    content += '<div class="text-center" style="font-size:30px; padding:0 20px 0;"><i class="fa fa-exclamation-triangle"></i></div>';
+    content += '<h5 class="text-center" style="font-size:30px; padding:0 20px 0; margin-bottom:10px; color:#676262">Oops! Something went wrong.</h5>';
+    content += '<p class="text-center" style="font-size:16px; padding:0 20px 0;">The page didn\'t load Google Map correctly. See the javascript console for technical details.</p>';
+    content += '</div>';
+    content += '</div>';
+    content += '</div>';
+
+    $("#map").append(content);
+};
+
 /* Defining the Location constructor */
 var Location = function (data) {
     this.title = ko.observable(data.title);
